@@ -7,8 +7,10 @@ const onGenerateSubmit = (e) => {
 
   clearUI();
 
+  const standardUrl = "https://rsvp-qualogy-event.vercel.app/scan?id="
   const url = document.getElementById("url").value;
   const size = document.getElementById("size").value;
+  const completeUrl = standardUrl+url;
 
   // Validate url
   if (url === "") {
@@ -18,7 +20,7 @@ const onGenerateSubmit = (e) => {
     // Show spinner for 1 sec
     setTimeout(() => {
       hideSpinner();
-      generateQRCode(url, size);
+      generateQRCode(completeUrl, size);
       showScanner();
       // Generate the save button after the qr code image src is ready
       setTimeout(() => {
